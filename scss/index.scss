@@ -181,7 +181,9 @@ header{
   .outer-img{
     position: relative;
     height: 200px;
+    height: 700px;
     background: #5f3f8e;
+    
     background: linear-gradient(180deg,  rgba(255,255,255,1) -52%,#5f3f8e 55%);
     &__half{
       position: absolute;
@@ -196,6 +198,7 @@ header{
 }
 
 .about{
+  height: 500vh;
   h4{
     font-size: 22px;
     margin-bottom: 30px;
@@ -206,18 +209,34 @@ header{
   }
 
   &-top{
+    @include responsive(tablet-screens) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
     &__img{
       padding: 10px;
-      border: 1.5px solid #ae29f6;
-  
+
+      @include responsive(tablet-screens) {
+        width: 44.4444vw;
+        max-width: 640px;
+      }
+ 
       img{
         width: 100%;
       }
     }
 
     &__txt{
+
+      @include responsive(tablet-screens) {
+        width: 40vw;
+        max-width: 530px;
+      }
+
+
       &-first{
         margin-bottom: 60px;
+        width: 100%;
         h3{
           margin: 30px 0;
           font-size: 16px;
@@ -242,18 +261,33 @@ header{
       }
 
       &-last{
+        width: 100%;
         margin-bottom: 60px;
       }
     }
   }
   
   &-btm{
+    @include responsive(tablet-screens) {
+      display: flex;
+    }
+
     &__img{
       padding: 10px;
-      border: 1.5px solid #ae29f6;
+      @include responsive(tablet-screens) {
+        width: 44.4444vw;
+        max-width: 640px;
+      }
+      width: 100%;
     }
 
     &__txt{
+
+      @include responsive(tablet-screens) {
+        width: 40vw;
+        max-width: 530px;
+      }
+
       &-first,
       &-last{
         margin-bottom: 60px;
@@ -262,15 +296,19 @@ header{
   }
 }
 .skill{
-  background: #171e40;
+  
 
   &__contain{
+
     position: relative;
     height: 500vh;
 
     // width: 320px;
 
     .skill__sticky{
+      background: url(../images/skill/모래사장.jpg) no-repeat;
+      background-size: cover;
+      background-position: center;
       display: flex;
       position: sticky;
       top: 0px;
@@ -321,7 +359,7 @@ header{
           position: relative;
           width: 23.4375vw;
           height: 30.3125vw;
-          background-color: #fff;
+          background-color: transparent;
           line-height : 100%;
           border-radius: 4.6875vw;
           text-align: center;
@@ -342,19 +380,36 @@ header{
   
             img{
               display: inline-block;
-              width: 14.0625vw;
+              // width: 14.0625vw;
+              width: 10.0625vw;
+
               transform: translateY(50%);
               margin-bottom: 5px;
             }
           }
           &--front{
-            background-color: #fff;
+            background: url(../images/skill/1x/자산\ 2-8.png) center no-repeat;
+            background-size: contain;
             border-radius: 4.6875vw;
+            animation: clam 1s ease infinite alternate;
 
+            @keyframes clam  {
+              0% {
+                transform: rotate(-40deg);
+
+              }
+              100% {
+                transform: rotate(40deg);
+              
+              }
+            }
+          
           }
           &--back{
+            background: url(../images/skill/1x/자산\ 2-8.png) center no-repeat;
+            background-size: contain;
             transform: rotateY(180deg);
-            background-color: #fff;
+            // background-color: #fff;
             border-radius: 4.6875vw;
 
 
@@ -366,7 +421,7 @@ header{
               display: block;
               width: 100%;
               height: 55%;
-              background-color: #ae29f6;
+              // background-color: #ae29f6;
               
             }
           }
@@ -391,15 +446,21 @@ header{
   color: #fff;
   height: 100vh;
   overflow: hidden;
+  background: url(../images/skill/1x/모래사장2.jpg) center no-repeat;
+  background-size: cover;
+  // transform: rotate(180deg);
+
+  @include responsive(tablet-screens) {
+    display: flex;
+    align-items: center;
+  }
+
   & > img{
     position: absolute;
     left: 50%;
     z-index: -2;
-    // width: 100%;
     height: 100vh;
     transform: translateX(-50%);
-    filter: blur(4px);
-
     @include responsive(tablet-screens) {
       width: 100%;
     }
@@ -413,77 +474,99 @@ header{
     z-index: -1;
     width: 100%;
     height: 100%;
-    background: linear-gradient(270deg,#5f3f8e 0%, rgba(23,30,64,1) 100%);;
     opacity: 0.5;
     
     }
 
   .work-des{
+    margin-top: 50vh;
+    transform: translateY(-50%);
     z-index: 100;
     @include responsive(tablet-screens) {
       display: flex;
+      justify-content: center;
+      // padding: 0 100px;
       flex-direction: row-reverse;
-      align-items: center;
-      justify-content: space-between;
+      // justify-content: center;
+      height: 28.5714vw;
+      max-height: 480px;
     }
 
     &__rf-contain{
-      border: 1.5px solid #ae29f6;
-        padding: 10px;
-
+      height : fit-content;
+      padding: 10px;
+      width: 100%;
 
       @include responsive(tablet-screens) {
-        padding: 0px;
-        overflow: hidden;
-        height : fit-content;
+        padding: 15px;
         width: 50%;
-        height: 25vw;
+        height: 100%;
       }
 
-      img{
-        width: 100%;
 
-        @include responsive(tablet-screens) {
-          width: 150%;
+      &--border {
+        height: 100%;
+
+        width: 100%;
+        overflow: hidden;
+
+        img{
+          width: 100%;
+          display: block;
+          @include responsive(tablet-screens) {
+            width: 170%;
+          }
         }
       }
     }
 
     &__lf-contain{
-      width: 50%;
+      width: 100%;
+      height: 100%;
+  
+      @include responsive(tablet-screens) {
+        width: 50%;
+      }
 
 
       h3{
         margin: 20px 0;
-        font-size: 28px;
+        @include responsive(tablet-screens) {
+          margin:  0 0 20px 0;
+        }
+
+        
+        font-size: clamp(28px ,3.4286vw,48px);
       }
 
       small{
         padding-top: 30px;
-        border-top: #ae29f6 1.5px solid;
-        font-size: 14px;
+        font-size: clamp(14px,1.5714vw,22px);
         color: #c6c6c6;
       }
 
       strong{
         margin: 20px 0;
+        font-size : clamp( 18px ,1.8571vw,26px);
 
       }
+
       &--time{
-        font-size: 14px;
+        font-size: clamp(14px,1.5714vw,22px);
       }
 
       &--skill{
         margin: 20px 0 50px;
         color: #c6c6c6;
-        font-size: 14px;
+        font-size: clamp(14px, 1.5714vw,22px);
         word-spacing: 10px;
       }
 
       .work__btns{
         button{
           width: 100px;
-          height:30px;
+          width: clamp( 80px, 7.1429vw , 100px);
+          height: clamp( 25px, 2.1429vw , 30px);
           margin-bottom: 20px;
           background: transparent;
           color: #fff;
@@ -496,8 +579,10 @@ header{
 }
 
 .contect{
-  padding: 80px 0;
+  padding: 50% 0;
   background-color: #171e40;
+  position: relative;
+  height: 100vh;
 
   @include responsive(tablet-screens) {
     // display: flex;
@@ -515,65 +600,49 @@ header{
     -0.03em 0.08em 0 rgba(174,41,246, 1),
     -0.03em 0 0 rgba(174,41,246, 1);
     color: #fff;
-    font-size: min(10vw , 48px)  ;
+    // font-size: min(10vw , 48px)  ;
+    font-size: 10vw;
     text-align: center;
     margin-bottom: 20px;
   }
 
   &__sns{
-    display: grid;
+    display: flex;
     padding: 6.2500vw;
-    grid-template-columns: 43.1250vw  29.0625vw;
-    gap: min( 2.2500vw, 30px);
-    border: 1.5px solid #ae29f6;
     justify-content: center;
-    overflow: hidden;
+    align-items: flex-end;
+
 
     @include responsive(tablet-screens) {
-      display: flex;
       border: none;
       padding: 1.7857vw;
     }
 
 
     &--github,
-    &--velog{
-      width: min(43.1250vw , 290px);
+    &--velog,
+    &--gmail{
+      padding: 10px;
+      width: 100%;
+      max-width: 150px;
       img{
         width: 100%;
-        border-radius: min(4.6875vw , 30px);
-
       }
     }
-    &--gmail{
-      width: min(29.0625vw , 197px);
-      height: min(32.5vw, 217px);
-      text-align: center;
-      background-color: #fff;
-      border-radius: min(4.6875vw , 30px);
-      line-height:  min(32.5vw, 217px);
-
-
-      img{
-        display: inline-block;
-        width:59.1397%;
-        margin: 0 auto;
-        transform: translateY(50%);
-      }
     }
 
     &--character{
       position: relative;
       width: 29.0625vw;
-      // top: min( 6.2500vw, 25px);
-      // left:  min( 6.2500vw, 25px);
-      height: 32.5vw;
+      // height: 32.5vw;
       transform: scale(1.10);
         @include responsive(tablet-screens) {
+          width: 500px;
           transform: scale(1);
-
-          // position: absolute;
-    
+          position: absolute;
+          right: 150px;
+          bottom: 0;
+          overflow: hidden;
         }
       svg{
         position: absolute;
@@ -582,4 +651,3 @@ header{
       }
     }
   }
-}
